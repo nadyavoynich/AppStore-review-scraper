@@ -10,9 +10,9 @@ client = gspread.authorize(credentials)
 # Open the Google Sheet
 sheet = client.open('AppStore Reviews').sheet1
 
-# Fetch App Store reviews for AnkiDroid app
-app = AppStore(country="us", app_name="ankidroid-flashcards", app_id="1237663323")  # Use actual app_name and app_id for AnkiDroid
-app.review(how_many=1000)  # Number of reviews you want to scrape
+# Fetch App Store reviews for an app
+app = AppStore(app_name="ankimobile-flashcards", app_id="373493387")
+app.review(how_many=10000)  # Number of reviews to scrape
 
 # Extract stars, text, and date for each review
 reviews_data = [(review['rating'], review['review'], review['date']) for review in app.reviews]
